@@ -1,34 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:simplehealth/pages/login.dart';
+import 'package:simplehealth/pages/home.dart';
+import 'package:simplehealth/pages/intro.dart';
 
 void main() {
-  runApp(MaterialApp(home: Home()));
+  runApp(const SimpleHealthApp());
 }
 
-class Home extends StatelessWidget {
+class SimpleHealthApp extends StatelessWidget {
+  const SimpleHealthApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        scrollDirection: Axis.horizontal,
-        addAutomaticKeepAlives: false,
-        children: [
-          Container(
-            color: Colors.red,
-            width: 1024,
-            height: 1024,
-          ),
-          Container(
-            color: Colors.blue,
-            width: 1024,
-            height: 1024,
-          ),
-          Container(
-            color: Colors.yellow,
-            width: 1024,
-            height: 1024,
-          )
-        ],
-      ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Login(),
+      
     );
   }
 }
