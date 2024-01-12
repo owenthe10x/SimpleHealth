@@ -5,6 +5,7 @@ import "gorm.io/gorm"
 // Disease represents a disease entity.
 type Disease struct {
 	gorm.Model
+	ID uint
 	Name    string
 	Description string
 	Startdate string

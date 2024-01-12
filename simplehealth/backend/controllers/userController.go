@@ -87,7 +87,7 @@ func Login(c *gin.Context){
 		"exp": time.Now().Add(time.Hour * 24 * 30).Unix(),
 	})
 
-	tokenString, err := token.SignedString([]byte(os.Getenv("secret")))
+	tokenString, err := token.SignedString([]byte(os.Getenv("JWT_SECRET")))
 	if err != nil {
 		c.JSON(500, gin.H{"error": "Error while generating token"})
 	}
@@ -97,3 +97,30 @@ func Login(c *gin.Context){
 	c.JSON(200, gin.H{"message": "Login successful"})
 }
 
+func Logout(c *gin.Context) {
+	c.SetSameSite(http.SameSiteLaxMode)
+	c.SetCookie("Authorization", "", -1, "/", "localhost", true, true)
+	c.JSON(200, gin.H{"message": "Logout successful"})
+}
+
+func GetCurrentUser(c *gin.Context) {
+	user, _ := c.Get("user")
+
+	if user == nil {
+		c.JSON(200, gin.H{"user": nil})
+		return
+	}
+
+	c.JSON(200, gin.H{"user": user})
+}
+
+func Validate(c *gin.Context) {
+	user, _ := c.Get("user")
+
+	if user == nil {
+		c.JSON(401, gin.H{"error": "Unauthorized"})
+		return
+	}
+
+	c.JSON(200, gin.H{"message": user})
+}
