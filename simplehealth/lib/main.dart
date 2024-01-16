@@ -3,6 +3,7 @@ import 'package:simplehealth/pages/login_page.dart';
 import 'package:simplehealth/pages/home_page.dart';
 import 'package:simplehealth/pages/intro_page.dart';
 import 'package:go_router/go_router.dart';
+import 'package:simplehealth/components/layout.dart';
 
 void main() {
   runApp(SimpleHealthApp());
@@ -23,7 +24,7 @@ class SimpleHealthApp extends StatelessWidget {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const Home(),
+        builder: (context, state) => const Layout(),
       ),
       GoRoute(
         path: '/login',

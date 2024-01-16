@@ -10,19 +10,41 @@ class ScheduleTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
-      child: FilledButton(
-          onPressed: () {},
-          child: Row(
+      child: Container(
+          decoration: BoxDecoration(color: Color(0xFFB2D8D8)),
+          child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(30),
-                child: Image.asset(
-                  'assets/icon/medication.png',
-                  height: 100,
-                ),
+              Row(
+                children: [
+                  Image.asset(
+                    'assets/icons/medication.png',
+                    height: 150,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        schedule.title,
+                        style: const TextStyle(
+                            color: Color(0xFF008080),
+                            fontSize: 25,
+                            fontWeight: FontWeight.w800),
+                      ),
+                      Text(
+                        schedule.description,
+                        style: const TextStyle(
+                            color: Color(0xFF008080), fontSize: 20),
+                      )
+                    ],
+                  )
+                ],
               ),
-              Column(
-                children: [Text(schedule.title), Text(schedule.description)],
+              TextButton(
+                onPressed: () {},
+                child: const Text('More',
+                    style: TextStyle(
+                      color: Color(0xFF008080),
+                    )),
               )
             ],
           )),

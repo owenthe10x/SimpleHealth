@@ -17,7 +17,7 @@ class _SchedulePageState extends State<SchedulePage> {
       setState(() => today = day);
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         Container(
             child: Column(children: [
@@ -26,28 +26,55 @@ class _SchedulePageState extends State<SchedulePage> {
             children: [
               Image.asset('assets/icons/brain.png', height: 100),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('AI-Powered Scheduler'),
-                  const Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: Text(
-                        'Revolutionize your fitness routine effortlessly with our cutting-edge AI technology, ensuring an optimal and personalized workout schedule for you!'),
+                  const Text(
+                    'AI-Powered Scheduler',
+                    style: TextStyle(color: Color(0xFF006666), fontSize: 25),
                   ),
-                  ElevatedButton(onPressed: () {}, child: const Text('Try it!'))
+                  const Text(
+                    'Revolutionize your fitness routine effortlessly with our cutting-edge AI technology, ensuring an optimal and personalized workout schedule for you!',
+                    style: TextStyle(color: Color(0xFF006666), fontSize: 15),
+                  ),
+                  ElevatedButton(
+                      style: const ButtonStyle(
+                          backgroundColor: MaterialStatePropertyAll<Color>(
+                              Color(0xFF008080))),
+                      onPressed: () {},
+                      child: const Text(
+                        'Try it!',
+                        style: TextStyle(color: Colors.white),
+                      ))
                 ],
               )
             ],
           )
         ])),
-        Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(children: [
-              const Text('Schedule'),
-              TableCalendar(
+        Container(
+          decoration: BoxDecoration(
+              border: Border.all(color: const Color(0xFF006666)),
+              borderRadius: const BorderRadius.all(Radius.circular(20))),
+          child: Column(children: [
+            const Text('Schedule',
+                style: TextStyle(color: Color(0xFF006666), fontSize: 20)),
+            const Divider(),
+            SizedBox(
+              height: 300,
+              width: 300,
+              child: TableCalendar(
                 locale: "en_US",
-                rowHeight: 40,
-                shouldFillViewport: false,
-                calendarFormat: CalendarFormat.week,
+                shouldFillViewport: true,
+                calendarStyle: CalendarStyle(
+                    todayTextStyle: const TextStyle(color: Colors.black87),
+                    todayDecoration: BoxDecoration(
+                      color: Colors.white,
+                      border:
+                          Border.all(color: const Color(0xFF006666), width: 1),
+                      backgroundBlendMode: BlendMode.colorBurn,
+                      shape: BoxShape.circle,
+                    ),
+                    selectedDecoration: const BoxDecoration(
+                        color: Color(0xFF006666), shape: BoxShape.circle)),
                 headerStyle: const HeaderStyle(
                     formatButtonVisible: false, titleCentered: true),
                 availableGestures: AvailableGestures.all,
@@ -56,14 +83,32 @@ class _SchedulePageState extends State<SchedulePage> {
                 firstDay: DateTime.utc(2010, 1, 1),
                 lastDay: DateTime.utc(2030, 12, 31),
                 onDaySelected: _onDaySelected,
-              )
-            ])),
-        const Divider(),
+              ),
+            ),
+          ]),
+        ),
+        SizedBox(
+          height: 40,
+        ),
+        const Divider(
+          endIndent: 20,
+          indent: 20,
+        ),
         Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(DateFormat("EEEEEEEE, MMM d yyyy").format(today)),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Text(
+                    DateFormat("EEEEEEEE, MMM d yyyy").format(today),
+                    style: const TextStyle(
+                      color: Color(0xFF006666),
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
                 TextButton(onPressed: () {}, child: const Icon(Icons.add))
               ],
             ),
@@ -74,6 +119,8 @@ class _SchedulePageState extends State<SchedulePage> {
             child: ListView.builder(
                 itemCount: 4,
                 scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   Schedule schedule = Schedule(
                       title: 'title',
