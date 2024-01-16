@@ -1,20 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:simplehealth/pages/login.dart';
-import 'package:simplehealth/pages/home.dart';
-import 'package:simplehealth/pages/intro.dart';
+import 'package:simplehealth/pages/login_page.dart';
+import 'package:simplehealth/pages/home_page.dart';
+import 'package:simplehealth/pages/intro_page.dart';
+import 'package:go_router/go_router.dart';
 
 void main() {
-  runApp(const SimpleHealthApp());
+  runApp(SimpleHealthApp());
 }
 
 class SimpleHealthApp extends StatelessWidget {
-  const SimpleHealthApp({Key? key}) : super(key: key);
+  SimpleHealthApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
+      routerConfig: _router,
       debugShowCheckedModeBanner: false,
-      home: Login(),
-      
     );
   }
+
+  final GoRouter _router = GoRouter(
+    initialLocation: '/intro',
+    routes: [
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const Home(),
+      ),
+      GoRoute(
+        path: '/login',
+        builder: (context, state) => const Login(),
+      ),
+      GoRoute(
+        path: '/intro',
+        builder: (context, state) => const Intro(),
+      ),
+    ],
+  );
 }

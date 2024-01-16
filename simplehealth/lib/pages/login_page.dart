@@ -1,6 +1,6 @@
-
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -8,46 +8,46 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(begin: Alignment.topCenter, colors: [
-          Color(0xFF006666),
-          Color(0xFF008080),
-          Color(0xFF66B2B2)
-        ])),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            const SizedBox(
-              height: 80,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  FadeInUp(
-                      duration: const Duration(milliseconds: 1000),
-                      child: const Text(
-                        "Login",
-                        style: TextStyle(color: Colors.white, fontSize: 40),
-                      )),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  FadeInUp(
-                      duration: const Duration(milliseconds: 1300),
-                      child: const Text(
-                        "Welcome Back",
-                        style: TextStyle(color: Colors.white, fontSize: 18),
-                      )),
-                ],
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(begin: Alignment.topCenter, colors: [
+            Color(0xFF006666),
+            Color(0xFF008080),
+            Color(0xFF66B2B2)
+          ])),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              const SizedBox(
+                height: 80,
               ),
-            ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: Container(
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    FadeInUp(
+                        duration: const Duration(milliseconds: 1000),
+                        child: const Text(
+                          "Login",
+                          style: TextStyle(color: Colors.white, fontSize: 40),
+                        )),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    FadeInUp(
+                        duration: const Duration(milliseconds: 1300),
+                        child: const Text(
+                          "Welcome Back",
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        )),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              Container(
                 decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -121,7 +121,9 @@ class Login extends StatelessWidget {
                       FadeInUp(
                           duration: const Duration(milliseconds: 1600),
                           child: MaterialButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              GoRouter.of(context).go('/');
+                            },
                             height: 50,
                             // margin: EdgeInsets.symmetric(horizontal: 50),
                             color: const Color(0xFF008080),
@@ -139,71 +141,12 @@ class Login extends StatelessWidget {
                               ),
                             ),
                           )),
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      FadeInUp(
-                          duration: const Duration(milliseconds: 1700),
-                          child: const Text(
-                            "Continue with social media",
-                            style: TextStyle(color: Colors.grey),
-                          )),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: FadeInUp(
-                                duration: const Duration(milliseconds: 1800),
-                                child: MaterialButton(
-                                  onPressed: () {},
-                                  height: 50,
-                                  color: Colors.blue,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
-                                  child: const Center(
-                                    child: Text(
-                                      "Facebook",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                )),
-                          ),
-                          const SizedBox(
-                            width: 30,
-                          ),
-                          Expanded(
-                            child: FadeInUp(
-                                duration: const Duration(milliseconds: 1900),
-                                child: MaterialButton(
-                                  onPressed: () {},
-                                  height: 50,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
-                                  color: Colors.black,
-                                  child: const Center(
-                                    child: Text(
-                                      "Github",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                )),
-                          )
-                        ],
-                      )
                     ],
                   ),
                 ),
               ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );
