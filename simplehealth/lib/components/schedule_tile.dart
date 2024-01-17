@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simplehealth/models.dart/schedule.dart';
+import 'package:simplehealth/models/schedule.dart';
 
 class ScheduleTile extends StatelessWidget {
   Schedule schedule;
@@ -11,7 +11,7 @@ class ScheduleTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Container(
-          decoration: BoxDecoration(color: Color(0xFFB2D8D8)),
+          decoration: const BoxDecoration(color: Color(0xFFB2D8D8)),
           child: Column(
             children: [
               Row(
@@ -39,12 +39,17 @@ class ScheduleTile extends StatelessWidget {
                   )
                 ],
               ),
-              TextButton(
-                onPressed: () {},
-                child: const Text('More',
-                    style: TextStyle(
-                      color: Color(0xFF008080),
-                    )),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text('More',
+                        style: TextStyle(
+                            color: Color(0xFF008080),
+                            decoration: TextDecoration.underline)),
+                  ),
+                ],
               )
             ],
           )),

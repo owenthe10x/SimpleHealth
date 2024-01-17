@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:simplehealth/components/schedule_tile.dart';
-import 'package:simplehealth/models.dart/schedule.dart';
+import 'package:simplehealth/models/schedule.dart';
 
 class SchedulePage extends StatefulWidget {
   const SchedulePage({super.key});
@@ -87,7 +87,7 @@ class _SchedulePageState extends State<SchedulePage> {
             ),
           ]),
         ),
-        SizedBox(
+        const SizedBox(
           height: 40,
         ),
         const Divider(

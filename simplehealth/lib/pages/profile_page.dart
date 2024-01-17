@@ -32,30 +32,91 @@ class Profile extends StatelessWidget {
                 ),
               ],
             ),
-            TextButton(onPressed: () {}, child: const Text('Edit Profile'))
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                    onPressed: () {},
+                    child: const Text('Edit Profile',
+                        style: TextStyle(
+                            fontSize: 15,
+                            color: Color(0xFF008080),
+                            decoration: TextDecoration.underline))),
+              ],
+            )
           ]),
         ),
         Column(
           children: [
-            const Divider(),
+            const Divider(
+              height: 0,
+            ),
             TextButton(
+                style: const ButtonStyle(
+                    padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
+                    shape: MaterialStatePropertyAll(LinearBorder(
+                        side: BorderSide(style: BorderStyle.none)))),
                 onPressed: () {},
-                child: const Row(children: [Icon(Icons.person), Text('Goals')])),
-            const Divider(),
+                child: Row(children: [
+                  Padding(
+                      padding: const EdgeInsets.only(right: 15),
+                      child: Image.asset('assets/icons/target.png')),
+                  const Text(
+                    'Goals',
+                    style: TextStyle(color: Color(0xFF008080)),
+                  )
+                ])),
+            const Divider(
+              height: 0,
+            ),
             TextButton(
+                style: const ButtonStyle(
+                    padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
+                    shape: MaterialStatePropertyAll(LinearBorder(
+                        side: BorderSide(style: BorderStyle.none)))),
                 onPressed: () {},
-                child: const Row(children: [Icon(Icons.headset_mic), Text('Help')])),
-            const Divider(),
+                child: Row(children: [
+                  Padding(
+                      padding: const EdgeInsets.only(right: 15),
+                      child: Image.asset('assets/icons/cs.png')),
+                  const Text(
+                    'Help',
+                    style: TextStyle(color: Color(0xFF008080)),
+                  )
+                ])),
+            const Divider(
+              height: 0,
+            ),
             TextButton(
+                style: const ButtonStyle(
+                    padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
+                    shape: MaterialStatePropertyAll(LinearBorder(
+                        side: BorderSide(style: BorderStyle.none)))),
                 onPressed: () {},
-                child: const Row(children: [Icon(Icons.settings), Text('Settings')]))
+                child: Row(children: [
+                  Padding(
+                      padding: const EdgeInsets.only(right: 15),
+                      child: Image.asset('assets/icons/setting.png')),
+                  const Text(
+                    'Settings',
+                    style: TextStyle(color: Color(0xFF008080)),
+                  )
+                ]))
           ],
         ),
         Center(
           child: Column(
             children: [
-              TextButton(onPressed: () {}, child: const Text('LOG OUT')),
-              const Text('App Version 10.003')
+              TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'LOG OUT',
+                    style: TextStyle(
+                        color: Color(0xFF008080),
+                        decoration: TextDecoration.underline),
+                  )),
+              const Text('App Version 10.003',
+                  style: TextStyle(color: Color(0xFF008080)))
             ],
           ),
         )

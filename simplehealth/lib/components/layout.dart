@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../components/bottom_navbar.dart';
-import '../pages/intro_page.dart';
 import '../pages/schedule_page.dart';
 import '../pages/consultation_page.dart';
 import '../pages/profile_page.dart';
+import '../pages/home_page.dart';
 
 class Layout extends StatefulWidget {
   const Layout({Key? key}) : super(key: key);

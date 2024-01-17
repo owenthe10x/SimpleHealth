@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:simplehealth/pages/login_page.dart';
-import 'package:simplehealth/pages/home_page.dart';
 import 'package:simplehealth/pages/intro_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:simplehealth/components/layout.dart';
