@@ -7,43 +7,104 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Column(children: [
-          Row(
-            children: [
-              FilledButton(onPressed: () {}, child: const Icon(Icons.person)),
-              const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [Text('Jason Jahja'), Text('+62 826172837')],
-              )
-            ],
-          ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
-                children: [Icon(Icons.calendar_month), Text('16 Years')],
+        Padding(
+          padding: const EdgeInsets.only(top: 80),
+          child: Column(children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  Container(
+                    child: Icon(
+                      Icons.person,
+                      color: Color(0xFFB2D8D8),
+                      size: 40,
+                    ),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xFF008080),
+                    ),
+                    width: 60,
+                    height: 60,
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Jason Jahja',
+                        style:
+                            TextStyle(color: Color(0xFF004C4C), fontSize: 25),
+                      ),
+                      Text(
+                        '+62 826172837',
+                        style:
+                            TextStyle(color: Color(0xFF004C4C), fontSize: 15),
+                      )
+                    ],
+                  )
+                ],
               ),
-              Column(
-                children: [Icon(Icons.monitor_weight), Text('72kg')],
-              ),
-              Column(
-                children: [Icon(Icons.height), Text('177 cm')],
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              TextButton(
-                  onPressed: () {},
-                  child: const Text('Edit Profile',
-                      style: TextStyle(
-                          fontSize: 15,
-                          color: Color(0xFF008080),
-                          decoration: TextDecoration.underline))),
-            ],
-          )
-        ]),
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    Icon(Icons.calendar_month,
+                        color: Color(0xFF008080), size: 40),
+                    Text(
+                      '16 Years',
+                      style: TextStyle(color: Color(0xFF004C4C)),
+                    )
+                  ],
+                ),
+                Column(
+                  children: [
+                    Icon(Icons.monitor_weight,
+                        color: Color(0xFF008080), size: 40),
+                    Text(
+                      '72kg',
+                      style: TextStyle(color: Color(0xFF004C4C)),
+                    )
+                  ],
+                ),
+                Column(
+                  children: [
+                    Icon(Icons.height, color: Color(0xFF008080), size: 40),
+                    Text(
+                      '177 cm',
+                      style: TextStyle(color: Color(0xFF004C4C)),
+                    )
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                    onPressed: () {},
+                    child: const Text('Edit Profile',
+                        style: TextStyle(
+                            fontSize: 15,
+                            color: Color(0xFF008080),
+                            decoration: TextDecoration.underline))),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            )
+          ]),
+        ),
         Column(
           children: [
             const Divider(
@@ -58,10 +119,11 @@ class ProfilePage extends StatelessWidget {
                 child: Row(children: [
                   Padding(
                       padding: const EdgeInsets.only(right: 15),
-                      child: Image.asset('assets/icons/target.png')),
+                      child:
+                          Image.asset('assets/icons/target.png', scale: 0.8)),
                   const Text(
                     'Goals',
-                    style: TextStyle(color: Color(0xFF008080)),
+                    style: TextStyle(color: Color(0xFF008080), fontSize: 20),
                   )
                 ])),
             const Divider(
@@ -76,10 +138,10 @@ class ProfilePage extends StatelessWidget {
                 child: Row(children: [
                   Padding(
                       padding: const EdgeInsets.only(right: 15),
-                      child: Image.asset('assets/icons/cs.png')),
+                      child: Image.asset('assets/icons/cs.png', scale: 0.8)),
                   const Text(
                     'Help',
-                    style: TextStyle(color: Color(0xFF008080)),
+                    style: TextStyle(color: Color(0xFF008080), fontSize: 20),
                   )
                 ])),
             const Divider(
@@ -94,10 +156,11 @@ class ProfilePage extends StatelessWidget {
                 child: Row(children: [
                   Padding(
                       padding: const EdgeInsets.only(right: 15),
-                      child: Image.asset('assets/icons/setting.png')),
+                      child:
+                          Image.asset('assets/icons/setting.png', scale: 0.8)),
                   const Text(
                     'Settings',
-                    style: TextStyle(color: Color(0xFF008080)),
+                    style: TextStyle(color: Color(0xFF008080), fontSize: 20),
                   )
                 ]))
           ],
@@ -110,8 +173,9 @@ class ProfilePage extends StatelessWidget {
                   child: const Text(
                     'LOG OUT',
                     style: TextStyle(
-                        color: Color(0xFF008080),
-                        decoration: TextDecoration.underline),
+                        color: Color(0xFF66B2B2),
+                        decoration: TextDecoration.underline,
+                        fontSize: 25),
                   )),
               const Text('App Version 10.003',
                   style: TextStyle(color: Color(0xFF008080)))

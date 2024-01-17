@@ -12,21 +12,40 @@ class Intro extends StatelessWidget {
           child: Padding(
         padding: const EdgeInsets.all(30),
         child: Column(children: [
+          const SizedBox(
+            height: 80,
+          ),
           const Text('SimpleHealth',
               style: TextStyle(fontSize: 30, color: Colors.white)),
+          const SizedBox(
+            height: 80,
+          ),
           Padding(
             padding: const EdgeInsets.all(30),
-            child: Image.asset('assets/icons/logo.png', height: 100),
+            child: Image.asset(
+              'assets/icons/logo.png',
+              scale: 0.75,
+            ),
+          ),
+          const SizedBox(
+            height: 40,
           ),
           const Text(
             'Revolutionizing Wellness Management with Integrated Health Solutions',
-            style: TextStyle(fontSize: 20, color: Colors.white),
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.white,
+            ),
             textAlign: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 20,
           ),
           ElevatedButton(
               style: ButtonStyle(
+                  minimumSize: MaterialStatePropertyAll(Size(400, 50)),
                   backgroundColor: MaterialStateProperty.all<Color>(
-                      const Color(0xFF66B2B2))),
+                      const Color(0xFF006666))),
               onPressed: () {
                 GoRouter.of(context).go('/login');
               },

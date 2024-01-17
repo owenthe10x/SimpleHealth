@@ -25,6 +25,7 @@ class SimpleHealthApp extends StatelessWidget {
           ),
         ],
         child: MaterialApp.router(
+          theme: ThemeData(fontFamily: 'Roboto'),
           routerConfig: _router,
           debugShowCheckedModeBanner: false,
         ));

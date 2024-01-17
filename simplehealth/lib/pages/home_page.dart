@@ -29,12 +29,18 @@ class _HomePageState extends State<HomePage> {
         ),
         const Divider(indent: 10, endIndent: 10),
         Center(child: Image.asset('assets/images/yoga.png')),
+        const SizedBox(
+          height: 20,
+        ),
         const Center(
           child: Text(
             'YOU ARE ON A GOOD PROGRESS',
             style: TextStyle(color: Color(0xFF008080), fontSize: 20),
           ),
         ),
+        const SizedBox(
+          height: 20,
+        ),  
         Center(
           child: LinearPercentIndicator(
               lineHeight: 30,
