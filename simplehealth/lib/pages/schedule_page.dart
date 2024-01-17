@@ -19,37 +19,44 @@ class _SchedulePageState extends State<SchedulePage> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        Container(
-            child: Column(children: [
+        Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
           TextButton(onPressed: () {}, child: const Icon(Icons.close)),
-          Row(
-            children: [
-              Image.asset('assets/icons/brain.png', height: 100),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'AI-Powered Scheduler',
-                    style: TextStyle(color: Color(0xFF006666), fontSize: 25),
+          Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: Row(
+              children: [
+                Image.asset('assets/icons/brain.png', height: 100),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'AI-Powered Scheduler',
+                        style:
+                            TextStyle(color: Color(0xFF006666), fontSize: 25),
+                      ),
+                      const Text(
+                        'Revolutionize your fitness routine \n effortlessly with our cutting-edge AI\n technology, ensuring an optimal and \npersonalized workout schedule for you!',
+                        style:
+                            TextStyle(color: Color(0xFF006666), fontSize: 15),
+                      ),
+                      ElevatedButton(
+                          style: const ButtonStyle(
+                              backgroundColor: MaterialStatePropertyAll<Color>(
+                                  Color(0xFF008080))),
+                          onPressed: () {},
+                          child: const Text(
+                            'Try it!',
+                            style: TextStyle(color: Colors.white),
+                          ))
+                    ],
                   ),
-                  const Text(
-                    'Revolutionize your fitness routine effortlessly with our cutting-edge AI technology, ensuring an optimal and personalized workout schedule for you!',
-                    style: TextStyle(color: Color(0xFF006666), fontSize: 15),
-                  ),
-                  ElevatedButton(
-                      style: const ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll<Color>(
-                              Color(0xFF008080))),
-                      onPressed: () {},
-                      child: const Text(
-                        'Try it!',
-                        style: TextStyle(color: Colors.white),
-                      ))
-                ],
-              )
-            ],
+                )
+              ],
+            ),
           )
-        ])),
+        ]),
         Container(
           decoration: BoxDecoration(
               border: Border.all(color: const Color(0xFF006666)),

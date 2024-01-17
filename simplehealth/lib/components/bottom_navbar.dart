@@ -8,15 +8,17 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: GNav(
-          color: Colors.grey[400],
-          activeColor: Colors.grey[700],
-          tabActiveBorder: Border.all(color: Colors.grey.shade700, width: 1),
+          backgroundColor: const Color(0xFF008080),
+          rippleColor: const Color(0xFFB2D8D8),
+          color: const Color(0xFFB2D8D8),
+          activeColor: const Color(0xFFB2D8D8),
+          tabBackgroundColor: const Color(0xFF006666),
+          tabMargin: const EdgeInsetsDirectional.symmetric(vertical: 10),
           gap: 8,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          iconSize: 24,
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+          iconSize: 30,
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
           onTabChange: (value) => onTabChange!(value),
           tabs: const [
             GButton(
