@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,7 +11,15 @@ class HomePage extends StatelessWidget {
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(),
+          Row(
+            children: [
+              Container(
+                width: 100,
+              ),
+              TextButton(
+                  onPressed: () {}, child: const Icon(Icons.notifications))
+            ],
+          ),
           const Divider(indent: 10, endIndent: 10),
           Center(child: Image.asset('assets/images/yoga.png')),
           const Center(
@@ -19,7 +28,18 @@ class HomePage extends StatelessWidget {
               style: TextStyle(color: Color(0xFF008080), fontSize: 20),
             ),
           ),
-          Container(),
+          Center(
+            child: LinearPercentIndicator(
+                lineHeight: 30,
+                barRadius: const Radius.circular(20),
+                percent: 0.5,
+                center: const Text(
+                  '80% Wellness',
+                  style: TextStyle(color: Colors.white, fontSize: 15),
+                ),
+                backgroundColor: const Color(0xFF008080),
+                progressColor: const Color(0xFF96EEBF)),
+          ),
           Row(mainAxisAlignment: MainAxisAlignment.end, children: [
             TextButton(
               onPressed: () {},

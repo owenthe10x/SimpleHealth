@@ -27,8 +27,8 @@ class _LayoutState extends State<Layout> {
   final List<Widget> _pages = [
     const HomePage(),
     const SchedulePage(),
-    const Consultation(),
-    const Profile(),
+    const ConsultationPage(),
+    const ProfilePage(),
   ];
 
   @override

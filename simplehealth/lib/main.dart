@@ -3,6 +3,9 @@ import 'package:simplehealth/pages/login_page.dart';
 import 'package:simplehealth/pages/intro_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:simplehealth/components/layout.dart';
+import 'package:provider/provider.dart';
+import './providers/models_provider.dart';
+import './providers/chats_provider.dart';
 
 void main() {
   runApp(SimpleHealthApp());
@@ -12,10 +15,19 @@ class SimpleHealthApp extends StatelessWidget {
   SimpleHealthApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: _router,
-      debugShowCheckedModeBanner: false,
-    );
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (_) => ModelsProvider(),
+          ),
+          ChangeNotifierProvider(
+            create: (_) => ChatProvider(),
+          ),
+        ],
+        child: MaterialApp.router(
+          routerConfig: _router,
+          debugShowCheckedModeBanner: false,
+        ));
   }
 
   final GoRouter _router = GoRouter(
