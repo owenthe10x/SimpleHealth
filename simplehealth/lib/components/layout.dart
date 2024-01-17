@@ -16,26 +16,28 @@ class _LayoutState extends State<Layout> {
   // this selected index is used to control the bottom navbar
   int _selectedIndex = 0;
 
-  // this function will be called when the bottom navbar is tapped
+  // pages to display
+  late List<Widget> _pages = [
+    HomePage(onTap: () {
+      navigateBottomBar(2);
+    }),
+    const SchedulePage(),
+    const ConsultationPage(),
+    const ProfilePage(),
+  ];
+
+// this function will be called when the bottom navbar is tapped
   void navigateBottomBar(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
 
-  // pages to display
-  final List<Widget> _pages = [
-    const HomePage(),
-    const SchedulePage(),
-    const ConsultationPage(),
-    const ProfilePage(),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: BottomNavBar(
-          onTabChange: (index) => navigateBottomBar(index),
+          onTabChange: (index) => setState(() => navigateBottomBar(index)),
         ),
         body: _pages[_selectedIndex]);
   }
